@@ -31,16 +31,18 @@ function Home() {
   }, []);
 
   const [cartItems, setCartItems] = useState([]);
-const vaciarCarrito = () => {
-  setCartItems([])
-}
+  const vaciarCarrito = () => {
+    setCartItems([]);
+  };
   const onAdd = (products) => {
     const existingItem = cartItems.find((x) => x.id === products.id);
-    console.log(existingItem)
+    console.log(existingItem);
     if (existingItem) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === products.id ? { ...existingItem, qty: existingItem.qty + 1 } : x
+          x.id === products.id
+            ? { ...existingItem, qty: existingItem.qty + 1 }
+            : x
         )
       );
     } else {
@@ -55,18 +57,22 @@ const vaciarCarrito = () => {
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === products.id ? { ...existingItem, qty: existingItem.qty - 1 } : x
+          x.id === products.id
+            ? { ...existingItem, qty: existingItem.qty - 1 }
+            : x
         )
       );
     }
   };
   const onSum = (products) => {
     const existingItem = cartItems.find((x) => x.id === products.id);
-    console.log(existingItem)
+    console.log(existingItem);
     if (!existingItem) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === products.id ? {...existingItem,qty: [...existingItem.qty + 1 ]} : x
+          x.id === products.id
+            ? { ...existingItem, qty: [...(existingItem.qty + 1)] }
+            : x
         )
       );
     }
@@ -76,7 +82,9 @@ const vaciarCarrito = () => {
     if (!existingItem) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === products.id ? {...existingItem,qty: [...existingItem.qty - 1]} : x
+          x.id === products.id
+            ? { ...existingItem, qty: [...(existingItem.qty - 1)] }
+            : x
         )
       );
     }
@@ -90,28 +98,36 @@ const vaciarCarrito = () => {
       <div className="results-home">
         {products?.map((result) => {
           return (
-            <Link
-              to={`/details/${result.id}`}
-              style={{ textDecoration: "none" }}
-              key={result.id}
-            >
-              <div className="card-results">
+            <div className="card-results">
+                <div className="container-card-results">
+                <Link
+                  to={`/detail/${result.id}`}
+                  style={{ textDecoration: "none" }}
+                  key={result.id}
+                >
                 <img
                   src={result.thumbnail}
                   width="270"
                   className="img-results"
                   alt="producto"
                 />
-                <div className="container-card-results">
                   <p className="title-results">{result.title} </p>
                   <p className="price-results">
                     {" "}
                     $ {number(Math.floor(result.price))}
                   </p>
-                  <button className="btn-cart" onClick={onAdd}> Agregar al carrito </button>
+                  </Link>
+                  <button
+                    className="btn-cart"
+                    onClick={() => {
+                      onAdd(result.id);
+                    }}
+                  >
+                    {" "}
+                    Agregar al carrito{" "}
+                  </button>
                 </div>
               </div>
-            </Link>
           );
         })}
       </div>

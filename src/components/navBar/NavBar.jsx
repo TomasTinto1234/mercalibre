@@ -14,7 +14,7 @@ import "./navBar.css"
 import {BsCart2} from "react-icons/bs";
 import Search from "../search/Search";
 
-  const NavBar = () => {
+  const NavBar = (props) => {
 
     function responsiveMenu() {
       const x = document.getElementById("elnav");
@@ -38,7 +38,7 @@ return (
       <div className ="contenido">
         <header>
           <div className="contenido-header">
-         <h1 className="pages" onClick={handleToIndex}>Merca Libre</h1>
+         <h1 className="pages" onClick={handleToIndex}>Venta Libre</h1>
          <Search/>
          <nav id="elnav" onClick={()=>responsiveMenu()}>
             <ul id="links" >
@@ -61,7 +61,10 @@ return (
              {/* <li className="pages"><a href="#users" ><Link to={`/Users` }>USERS</Link></a></li> */}
              {/* <li className="pages"><a href="#CreateProduct" ><Link to={`/CreateProduct`}>CREATE</Link></a></li> */}
              {/* <li className="pages"><a href="#contacto" >CONTACT</a></li> */}
-             <li className="pages"><a href="#carrito"><Link to='/cart'>
+             <li className="pages"><a href="#carrito"><Link to='/cart'>{props.countCartItems ? (<button className="badge">{props.countCartItems}</button>
+          ) : (
+            ''
+          )}
             <BsCart2 color="white"
             className="pages"
                 size="25px"

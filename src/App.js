@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Route, Routes } from "react-router-dom";
 import Home from "../src/components/home/Home"
 import Results from '../src/components/results/Results';
@@ -12,13 +12,31 @@ import Footer from './components/footer/Footer';
 // import Footerend from './components/FooterEnd.js';
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+  
+  const onAdd = (products) => {
+    const existingItem = cartItems.find((x) => x.id === products.id);
+    console.log(existingItem);
+    if (existingItem) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === products.id
+            ? { ...existingItem, qty: existingItem.qty + 1 }
+            : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...products, qty: 1 }]);
+    }
+  };
+
   return (
     <div>
-      <Navbar/>
+      <Navbar countCartItems={cartItems.length}/>
       {/* <Home/> */}
         <Routes>
            <Route exact path='/' element={<Home/>}/>
-           <Route exact path='/details/:id' element={<Details/>}/>
+           <Route exact path='/detail/:id' element={<Details/>}/>
            <Route exact path='/results' element={<Results/>}/>
           {/*
           <Route exact path='/cart' element={<Cart/>}/>

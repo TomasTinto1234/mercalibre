@@ -21,6 +21,7 @@ function DetailProduct() {
   const image = useSelector((state) => state.imageDetail)
   const price = useSelector((state) => state.price)
   const originalPrice = useSelector((state) => state.originalPrice)
+  const [cartItems, setCartItems] = useState([]);
 
   var i = 0;
   
@@ -39,6 +40,22 @@ function DetailProduct() {
       dispatch(cleanSearch())
     };
   }, [])
+
+  const onAdd = (products) => {
+    const existingItem = cartItems.find((x) => x.id === products.id);
+    console.log(existingItem);
+    if (existingItem) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === products.id
+            ? { ...existingItem, qty: existingItem.qty + 1 }
+            : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...products, qty: 1 }]);
+    }
+  };
   
 
   return (
@@ -144,7 +161,11 @@ function DetailProduct() {
                 </div>
               </div>
               : <p>No hay stock</p> }
-              <button className='btn-buy'> Comprar ahora </button>
+              <button className='btn-buy' onClick={() => {
+                      onAdd(detail.id);
+                    }}
+                  >
+                    Comprar ahora </button>
               <button className='btn-cart'> Agregar al carrito </button>
               {/* <p className='detail-point'> <CiTrophy className='icon-trophy'/> Mercado Puntos.</p> */}
             </div>

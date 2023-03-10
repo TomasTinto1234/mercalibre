@@ -1,11 +1,11 @@
 import React from "react";
 import "../carrusel/carrusel.css"
-import argentina from "../../assets/images1.jpeg";
+import argentina from "../../assets/images8.jpg";
 import full from "../../assets/images7.jpg";
-import herramientas from "../../assets/images5.jpeg";
+import herramientas from "../../assets/images4.jpg";
 import belleza from "../../assets/images4.jpg";
-import ofertas from "../../assets/images3.jpeg";
-import notebooks from "../../assets/images.jpeg";
+import ofertas from "../../assets/images7.jpg";
+import notebooks from "../../assets/images8.jpg";
 
 
 

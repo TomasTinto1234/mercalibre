@@ -7,7 +7,7 @@
   
 .slider ul {
     display: flex;
-    padding: 0;
+    padding: 3%;
     animation: cambio1 16s infinite alternate linear;
     margin: 0;
 }

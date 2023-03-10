@@ -53,7 +53,6 @@ function Categories() {
 
                 <div className={`categories ${slide}`}>
                     {listCategories?.map(category => {
-                        console.log(category.name)
                         return (
                             <button onClick={(category)=>handleCategories(category.name)}>
                             <div key={category.id} className="category-card" >

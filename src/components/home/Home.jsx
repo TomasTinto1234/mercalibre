@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Carousel from "../carrusel/Carrusel";
-import { offers, vendidos, products } from "../../redux/actions.js";
+import { offers, vendidos, productos } from "../../redux/actions.js";
 // import Payments from '../components/Payments.js';
 import Offers from "../offers/Offers";
 import { number } from "../../redux/actions.js";
@@ -13,6 +13,8 @@ import Details from "../details/Details";
 // import Discover from '../components/Discover.js';
 import Categories from "../categories/Categories";
 // import Footer from '../components/Footer.js';
+import Products from "../products/Products"
+import Card from '../card/Card'
 
 function Home() {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ function Home() {
   useEffect(() => {
     dispatch(offers());
     // dispatch(vendidos());
-    // dispatch(products())
+    dispatch(productos())
 
     window.scrollTo(0, 0);
   }, []);
@@ -92,45 +94,26 @@ function Home() {
   return (
     <div className="container-home">
       <Carousel />
-      <Offers title="Ofertas" listOffers={listOffers} />
+      {/* <Offers title="Ofertas" listOffers={listOffers} /> */}
       <Categories />
-      <Offers title="Mas vendidos" listOffers={listVendidos} />
-      <div className="results-home">
-        {products?.map((result) => {
-          return (
-            <div className="card-results">
-                <div className="container-card-results">
-                <Link
-                  to={`/detail/${result.id}`}
-                  style={{ textDecoration: "none" }}
-                  key={result.id}
-                >
-                <img
-                  src={result.thumbnail}
-                  width="270"
-                  className="img-results"
-                  alt="producto"
-                />
-                  <p className="title-results">{result.title} </p>
-                  <p className="price-results">
-                    {" "}
-                    $ {number(Math.floor(result.price))}
-                  </p>
-                  </Link>
-                  <button
-                    className="btn-cart"
-                    onClick={() => {
-                      onAdd(result.id);
-                    }}
-                  >
-                    {" "}
-                    Agregar al carrito{" "}
-                  </button>
-                </div>
-              </div>
-          );
-        })}
-      </div>
+      {/* <Offers title="Mas vendidos" listOffers={listVendidos} /> */}
+      <Products title="Productos" products={listOffers} />
+      <div className="products-container">
+           
+              <h2 className="products-title">Ultimas busquedas</h2>
+            <div className="products-slider">
+                {products.slice(0, 5).map(offer => {
+                return (
+                    <div key={offer.id}>
+                        <Link to={`/detail/${offer.id}`} style={{"textDecoration":"none"}}>
+                            <Card offer={offer}/>
+                        </Link>
+                    </div>
+                )
+                })} 
+            </div>
+           
+        </div>
       {/* <Payments/>
         <Subscription/>
         <Benefits/>

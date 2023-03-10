@@ -10,8 +10,10 @@ export const LOADING = "LOADING";
 export const OFFERS = "OFFERS";
 export const NUMBER = "NUMBER";
 export const DETAIL = "DETAIL";
+export const PRODUCTS = "PRODUCTS";
 
 const initialState = {
+  products: [],
   searchProduct: [],
   productDetail: {},
   imageDetail: "",
@@ -186,6 +188,11 @@ const initialState = {
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case PRODUCTS: 
+    return {
+      ...state,
+      products: action.payload
+    }
     case SEARCH_PRODUCT:
       const allBrands = [];
       const allLocations = [];

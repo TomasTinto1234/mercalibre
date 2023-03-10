@@ -8,13 +8,12 @@ export function loading() {
     }
   }
 
-  export function products() {
+  export function productos() {
     return async function (dispatch) {
       dispatch(loading())
       try {
-        const URL = 'https://api.mercadolibre.com/sites/MLA/search?q=items#json'
+        const URL = 'https://api.mercadolibre.com/sites/MLA/search?q=items'
         const { data: result } = await axios.get(URL)
-        console.log(result);
       } catch (error) {
         console.log(error);
       }
@@ -43,7 +42,7 @@ export function searchProduct(title) {
     return async function (dispatch) {
         dispatch(loading())
         try {
-            const URL = `https://api.mercadolibre.com/sites/MLA/search?q=televisor`
+            const URL = `https://api.mercadolibre.com/sites/MLA/search?q=items?limit=20`
             const { data: result } = await axios.get(URL)
             const offers = result.results?.slice(0, 5)
 

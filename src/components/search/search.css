@@ -15,7 +15,7 @@
 }
 
 ::placeholder {
-    color: rgba(199, 197, 197, 0.863);
+    color: rgba(161, 157, 157, 0.863);
 }
 
 input:focus{
@@ -29,13 +29,13 @@ input:focus{
     border-radius: 0 2px 2px 0;
     background-color: white;
     border: none;
-    width: 3.4rem;
-    height: 2.4rem;
+    width: 3.2rem;
+    height: 2.2rem;
 }
 
 .linea-search{
     font-size: 1rem;
-    color: rgba(199, 197, 197, 0.445);
+    color: rgba(145, 141, 141, 0.445);
 }
 
 .search-icon{

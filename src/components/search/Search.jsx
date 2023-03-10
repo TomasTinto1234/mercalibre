@@ -27,13 +27,13 @@ function Search () {
             <input
             className="form-input"
             type="text"
-            placeholder="Buscar productos, marcas y más..."
+            placeholder="Buscar productos"
             onChange={(e) => handleInputChange(e)} 
             value={name}
             />
             <button className="btn-search" type="button">
                 <p className='linea-search'>|</p>
-                <IoSearchOutline className='search-icon'  size="35px"
+                <IoSearchOutline className='search-icon'  size="30px"
                 color='black'
                 onMouseOut={({ target }) => (target.style.color = "black")}
                 cursor="pointer"/>

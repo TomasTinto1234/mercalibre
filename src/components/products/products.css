@@ -1,0 +1,35 @@
+.products-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4% 0;
+    cursor: pointer;
+}
+
+.products-top{
+    display: flex;
+    justify-content: flex-start;
+    width: 75%;
+    
+}
+
+.products-title{
+    font-weight: lighter;
+    font-size: 1.7rem;
+    margin-right: 1.5%;
+    color: #727272;
+}
+
+.products-seeAll{
+    display: flex;
+    margin-bottom: 2.2%;
+    color: #5697FA;
+    font-weight: 500;
+}
+
+.products-slider{
+    display: flex;
+    width: 77%;
+    justify-content: space-evenly;
+    padding-top: 2%;
+}

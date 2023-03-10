@@ -32,8 +32,9 @@ import Search from "../search/Search";
   const handleToIndex = () => {
       navigate('/')
   }
+
+  
 return (
-    <div>
         <section id="inicio">
       <div className ="contenido">
         <header>
@@ -61,6 +62,7 @@ return (
              {/* <li className="pages"><a href="#users" ><Link to={`/Users` }>USERS</Link></a></li> */}
              {/* <li className="pages"><a href="#CreateProduct" ><Link to={`/CreateProduct`}>CREATE</Link></a></li> */}
              {/* <li className="pages"><a href="#contacto" >CONTACT</a></li> */}
+             <li className="pages"><a href="#offers"><Link to={"/offers"}>Ofertas</Link></a></li>
              <li className="pages"><a href="#carrito"><Link to='/cart'>{props.countCartItems ? (<button className="badge">{props.countCartItems}</button>
           ) : (
             ''
@@ -68,14 +70,14 @@ return (
             <BsCart2 color="white"
             className="pages"
                 size="25px"
-                onMouseOver={({ target }) => (target.style.color = "#e2da04")}
+                onMouseOver={({ target }) => (target.style.color = "#5697FA")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/>
           </Link></a></li>
              <li className="pages"><a href="#login" ><Link to={"/Login"}><BiUser color="white"
                 className="pages"
                 size="25px"
-                onMouseOver={({ target }) => (target.style.color = "#e2da04")}
+                onMouseOver={({ target }) => (target.style.color = "#5697FA")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/></Link></a></li>
             </ul>
@@ -84,7 +86,7 @@ return (
               <BiMenu color="gray"
               className="pages"
                 size="35px"
-                onMouseOver={({ target }) => (target.style.color = "#e2da04")}
+                onMouseOver={({ target }) => (target.style.color = "#5697FA")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/>
           </nav>
@@ -92,7 +94,6 @@ return (
         </header>
       </div>
     </section>
-  </div>
 )
 
 

@@ -2,12 +2,10 @@
     width: 100%;
     margin: auto;
     overflow: hidden;
-    /* padding-top: 3.8%; */
 }
   
 .slider ul {
     display: flex;
-    padding: 3%;
     animation: cambio1 16s infinite alternate linear;
     margin: 0;
 }

@@ -19,3 +19,26 @@
     flex-direction: column;
     padding-top: 2%;
 }
+
+.box-container {
+    /* 
+    align-items: start;
+    */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+  }
+
+  .section-notion {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }

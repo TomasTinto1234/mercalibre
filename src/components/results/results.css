@@ -40,6 +40,7 @@
     flex-direction: row;
     border-bottom: 1px solid rgba(128, 128, 128, 0.178);
     color:black;
+    justify-content: flex-start;
     padding: 1% 0;
 }
 

@@ -38,7 +38,7 @@ return (
       <div className ="contenido">
         <header>
           <div className="contenido-header">
-         <h1 className="pages" onClick={handleToIndex}>E-commerce</h1>
+         <h1 className="pages" onClick={handleToIndex}>Merca Libre</h1>
          <Search/>
          <nav id="elnav" onClick={()=>responsiveMenu()}>
             <ul id="links" >
@@ -59,26 +59,29 @@ return (
             <option value="za">z-a</option>
           </select></li> */}
              {/* <li className="pages"><a href="#users" ><Link to={`/Users` }>USERS</Link></a></li> */}
-             <li className="pages"><a href="#CreateProduct" ><Link to={`/CreateProduct`}>CREATE</Link></a></li>
-             <li className="pages"><a href="#contacto" >CONTACT</a></li>
-             <li className="pages"><a href="#carrito"><Link to='/cart' style={{"textDecoration":"none"}}>
-            <BsCart2 className='icon-cart' color="white"
+             {/* <li className="pages"><a href="#CreateProduct" ><Link to={`/CreateProduct`}>CREATE</Link></a></li> */}
+             {/* <li className="pages"><a href="#contacto" >CONTACT</a></li> */}
+             <li className="pages"><a href="#carrito"><Link to='/cart'>
+            <BsCart2 color="white"
+            className="pages"
                 size="25px"
-                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOver={({ target }) => (target.style.color = "#e2da04")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/>
           </Link></a></li>
              <li className="pages"><a href="#login" ><Link to={"/Login"}><BiUser color="white"
+                className="pages"
                 size="25px"
-                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOver={({ target }) => (target.style.color = "#e2da04")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/></Link></a></li>
             </ul>
            </nav>
              <nav id="icono-nav" onClick={()=>responsiveMenu()}>
               <BiMenu color="gray"
+              className="pages"
                 size="35px"
-                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOver={({ target }) => (target.style.color = "#e2da04")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/>
           </nav>

@@ -33,7 +33,10 @@ function Search () {
             />
             <button className="btn-search" type="button">
                 <p className='linea-search'>|</p>
-                <IoSearchOutline className='search-icon'/>
+                <IoSearchOutline className='search-icon'  size="35px"
+                color='black'
+                onMouseOut={({ target }) => (target.style.color = "black")}
+                cursor="pointer"/>
             </button>
         </form>
     )

@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import "./categories.css";
 import {IoIosArrowForward, IoIosArrowBack} from "react-icons/io"
+import { searchProduct } from '../../redux/actions';
+import { useNavigate } from 'react-router-dom';
 
 
 function Categories() {
     const [slide, setSlide] = useState("start")
     const listCategories = useSelector((state) => state.categories)
-    console.log(listCategories);
+    const [name, setName] = useState("");
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleClickNext = () => {
         if (slide === 'start') {
@@ -23,6 +27,14 @@ function Categories() {
         } else if (slide === 'middle') {
             setSlide('start')
         }
+    }
+
+    const handleCategories = (product) => {
+        console.log("soy product",product);
+        // product.preventDefault()
+        dispatch(searchProduct(product))
+        navigate(`/results/?search=${product}`)
+        setName("")
     }
 
     return (
@@ -41,14 +53,17 @@ function Categories() {
 
                 <div className={`categories ${slide}`}>
                     {listCategories?.map(category => {
-                    return (
-                        <div key={category.id} className="category-card">
+                        console.log(category.name)
+                        return (
+                            <button onClick={(category)=>handleCategories(category.name)}>
+                            <div key={category.id} className="category-card" >
                             {category.icon}
                             <p className='category-name'>{category.name}</p>
                             
                         </div>
+                </button>
                     )
-                    })}
+                })}
                 </div>
 
                 <button onClick={handleClickNext} className={`category-btn-arrow-right ${slide === 'end' ? "noShow" : ""}`}><IoIosArrowForward/></button>

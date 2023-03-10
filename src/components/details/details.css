@@ -3,6 +3,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding-top: 5%;
+    padding-left: 5%;
 }
 
 .product-detail{

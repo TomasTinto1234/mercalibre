@@ -1,0 +1,21 @@
+.results-home{
+    display: flex;
+    flex-direction: column;
+    width: 59.4rem;
+    padding-right: 3%;
+}
+
+.card-results-home{
+    display: flex;
+    align-items: flex-start;
+    background-color: rgb(131, 127, 127);
+    flex-direction: row;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.178);
+    color:black;
+    padding: 1% 0;
+}
+.container-card-results-home{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2%;
+}
